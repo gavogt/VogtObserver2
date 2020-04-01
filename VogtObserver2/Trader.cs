@@ -32,6 +32,12 @@ namespace VogtObserver2
 
         public void PrintPrices()
         {
+            /*
+            for (int i = 0; i < 20; i++)
+            {
+                Console.WriteLine($"The Lastest trade is Trader: Julie {_buyOrSell[i]} cost {_msftPrice} Stock: MSFT");
+            }
+            */
             Console.WriteLine($"The Lastest trade is Trader: Julie sell cost {_msftPrice} Stock: MSFT");
             Console.WriteLine($"The Lastest trade is Trader: Julie sell cost {_googPrice} Stock: GOOG");
             Console.WriteLine($"The Lastest trade is Trader: Julie sell cost {_aaplPrice} Stock: AAPL");
