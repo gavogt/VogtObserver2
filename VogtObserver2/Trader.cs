@@ -16,33 +16,34 @@ namespace VogtObserver2
         private GOOG _goog = new GOOG();
         private AAPL _aapl = new AAPL();
 
-        private string[] _buyOrSell = new string[] { "buy", "sell" };
+        private string _name;
 
-        public Trader(Stock stockgrabber)
+        Random rand = new Random();
+
+        private string[] _buyOrSell = new string[] { " ", "buy", "sell" };
+
+        public Trader(Stock stockgrabber, string name)
         {
             _stockgrabber = stockgrabber;
             _stockgrabber.AddObserver(this);
+            _name = name;
 
-        }      
+        }
 
         public void Update()
         {
             _msftPrice = (_msft.setMSFTPrice(_stockgrabber.GetRandomInt()));
             _googPrice = (_goog.setGoogPrice(_stockgrabber.GetRandomInt()));
-            _aaplPrice = (_aapl.setAAPLPrice( _stockgrabber.GetRandomInt()));
+            _aaplPrice = (_aapl.setAAPLPrice(_stockgrabber.GetRandomInt()));
         }
 
         public void PrintPrices()
         {
-            /*
-            for (int i = 0; i < 20; i++)
-            {
-                Console.WriteLine($"The Lastest trade is Trader: Julie {_buyOrSell[i]} cost {_msftPrice} Stock: MSFT");
-            }
-            */
-            Console.WriteLine($"The Lastest trade is Trader: Julie sell cost {_msftPrice} Stock: MSFT");
-            Console.WriteLine($"The Lastest trade is Trader: Julie sell cost {_googPrice} Stock: GOOG");
-            Console.WriteLine($"The Lastest trade is Trader: Julie sell cost {_aaplPrice} Stock: AAPL");
+
+            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_msftPrice} Stock: MSFT");
+            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_googPrice} Stock: GOOG");
+            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_aaplPrice} Stock: AAPL");
+
         }
     }
 }

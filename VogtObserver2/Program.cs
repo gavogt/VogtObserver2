@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace VogtObserver2
 {
@@ -7,19 +8,34 @@ namespace VogtObserver2
         static void Main(string[] args)
         {
             Stock stockGrabber = new Stock();
-            MSFT msft = new MSFT();
 
-            Run(stockGrabber, msft);
+            Run(stockGrabber);
         }
 
-        public static void Run(Stock stockGrabber,MSFT msft)
+        public static void Run(Stock stockGrabber)
         {
-       
-            Trader julie = new Trader(stockGrabber);
-            msft.setMSFTPrice(666);
 
-            julie.Update();
-            julie.PrintPrices();
+            Trader t1 = new Trader(stockGrabber, "Julie");
+            Trader t2 = new Trader(stockGrabber, "Amy");
+            Trader t3 = new Trader(stockGrabber, "Mark");
+
+            for (int i = 0; i <= 20; i++)
+            {
+                t1.Update();
+                t1.PrintPrices();
+
+                t2.Update();
+                t2.PrintPrices();
+
+                t3.Update();
+                t3.PrintPrices();
+
+                Thread.Sleep(2000);
+
+            }
+
+
+
         }
     }
 }
