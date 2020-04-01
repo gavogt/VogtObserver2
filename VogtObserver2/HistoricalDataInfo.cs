@@ -31,30 +31,10 @@ namespace VogtObserver2
 
             var deserialize = new JsonDeserializer();
 
-            //List<HistoricalDataResponse> output = deserialize.Deserialize<List<HistoricalDataResponse>>(response);
-
             var output = deserialize.Deserialize<List<HistoricalDataResponse>>(response);
-
-
-            foreach (var historicalData in output)
-            {
-                if (historicalData != null)
-                {
-                    _hdr.latestPrice = Convert.ToDouble(historicalData.latestPrice);
-                       Console.WriteLine("Here!");
-                    //Console.WriteLine(hdr.latestPrice = Convert.ToDouble((historicalData.latestPrice)));
-                    Console.WriteLine($"HDR latest price {_hdr.latestPrice}");
-                    Console.WriteLine("Open: " + historicalData.open);
-                    Console.WriteLine("Close: " + historicalData.close);
-                    Console.WriteLine("Lastest aaprice: "+historicalData.latestPrice);
-                    //Console.WriteLine("Low: " + historicalData.low);
-                    //Console.WriteLine("High: " + historicalData.high);
-                    Console.WriteLine("Change: " + historicalData.change);
-                    Console.WriteLine("Change Percentage: " + historicalData.changePercent);
-                }
-            }
 
             return output;
         }
+     
     }
 }

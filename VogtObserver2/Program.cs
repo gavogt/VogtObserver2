@@ -23,11 +23,9 @@ namespace VogtObserver2
 
             foreach (var historicaldata in hdr)
             {
-                Console.WriteLine($"HEEREE{historicaldata.latestPrice}");
-            }
+                Console.WriteLine($"Latest Price: {historicaldata.latestPrice}");
 
-            //var latestprice = hdr.latestPrice;
-            //Console.WriteLine($"latestprice{latestprice}");
+            }
 
             /*
            Trader t1 = new Trader(stockGrabber, "Julie");
