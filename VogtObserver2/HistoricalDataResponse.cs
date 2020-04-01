@@ -6,10 +6,8 @@ namespace VogtObserver2
 {
     class HistoricalDataResponse
     {
-        public string date { get; set; }
+
         public double open { get; set; }
-        public double high { get; set; }
-        public double low { get; set; }
         public double close { get; set; }
         public int volume { get; set; }
         public int unadjustedVolume { get; set; }
