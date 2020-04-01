@@ -27,7 +27,23 @@ namespace VogtObserver2
             _observers.Remove(o);
         }
 
-        public int GetRandomInt()
+        public int GetAAPLPrice()
+        {
+            Random random = new Random();
+            _random = random.Next(1, 1000);
+
+            return _random;
+        }
+
+        public int GetMSFTPrice()
+        {
+            Random random = new Random();
+            _random = random.Next(1, 1000);
+
+            return _random;
+        }
+
+        public int GetGOOGPrice()
         {
             Random random = new Random();
             _random = random.Next(1, 1000);
