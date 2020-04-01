@@ -17,5 +17,9 @@ namespace VogtObserver2
         public string label { get; set; }
         public double changeOverTime { get; set; }
 
+        public string latestPrice { get; set; }
+
+        public double iexRealtimePrice { get; set; }
+
     }
 }

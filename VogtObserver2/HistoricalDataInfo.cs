@@ -15,6 +15,7 @@ namespace VogtObserver2
     {
         public static void HistoricalData()
         {
+            HistoricalDataResponse hdr = new HistoricalDataResponse();
             var symbol = "msft";
             var IEXTrading_API_PATH = "https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e";
 
@@ -26,56 +27,25 @@ namespace VogtObserver2
 
             var deserialize = new JsonDeserializer();
 
-            var output = deserialize.Deserialize<List<HistoricalDataResponse>>(response);
+            List<HistoricalDataResponse> output = deserialize.Deserialize<List<HistoricalDataResponse>>(response);
             output.PrintDump();
 
 
-
-            //IEXTrading_API_PATH = string.Format(IEXTrading_API_PATH, symbol);
-            /*
-            using (HttpClient client = new HttpClient())
+            foreach (var historicalData in output)
             {
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                //For IP-API
-                client.BaseAddress = new Uri(IEXTrading_API_PATH);
-
-                HttpResponseMessage response = client.GetAsync(IEXTrading_API_PATH).GetAwaiter().GetResult();
-                
-                Console.ReadLine();
-                var deserialize = new JsonDeserializer();
-                deserialize.Deserialize<List<HistoricalDataResponse>>(response);
-
-                //response.PrintDump();
-                //client.UseNewtonsoftJson();
-
-                if (response.IsSuccessStatusCode)
+                if (historicalData != null)
                 {
-                    var historialDataList = response.Content.ReadAsAsync<List<HistoricalDataResponse>>().GetAwaiter().GetResult();
+                    Console.WriteLine(hdr.latestPrice = historicalData.latestPrice);
+                    Console.WriteLine($"HDR latest price {hdr.latestPrice}");
+                    Console.WriteLine("Open: " + historicalData.open);
+                    Console.WriteLine("Close: " + historicalData.close);
+                    Console.WriteLine("Lastest aaprice: "+historicalData.latestPrice);
+                    //Console.WriteLine("Low: " + historicalData.low);
+                    //Console.WriteLine("High: " + historicalData.high);
+                    Console.WriteLine("Change: " + historicalData.change);
+                    Console.WriteLine("Change Percentage: " + historicalData.changePercent);
                 }
-                else { Console.WriteLine("Error!"); }
-                
-                /*
-                if (response.IsSuccessStatusCode)
-                {
-                    var historialDataList = response.Content.ReadAsAsync<List<HistoricalDataResponse>>().GetAwaiter().GetResult();
-
-                    foreach (var historicalData in historialDataList)
-                    {
-                        if (historicalData != null)
-                        {
-                            
-                            Console.WriteLine("Open: " + historicalData.open);
-                            Console.WriteLine("Close: " + historicalData.close);
-                            Console.WriteLine("Low: " + historicalData.low);
-                            Console.WriteLine("High: " + historicalData.high);
-                            Console.WriteLine("Change: " + historicalData.change);
-                            Console.WriteLine("Change Percentage: " + historicalData.changePercent);
-                        }
-                    }
-                }
-            }*/
+            }
         }
     }
 }
