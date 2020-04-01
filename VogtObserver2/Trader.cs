@@ -13,6 +13,8 @@ namespace VogtObserver2
         private double _aaplPrice;
 
         private MSFT _msft = new MSFT();
+        private GOOG _goog = new GOOG();
+        private AAPL _aapl = new AAPL();
 
         private string[] _buyOrSell = new string[] { "buy", "sell" };
 
@@ -26,8 +28,8 @@ namespace VogtObserver2
         public void Update()
         {
             _msftPrice = (_msft.setMSFTPrice(_stockgrabber.GetRandomInt()));
-            _googPrice = _stockgrabber.GetRandomInt();
-            _aaplPrice = _stockgrabber.GetRandomInt();
+            _googPrice = (_goog.setGoogPrice(_stockgrabber.GetRandomInt()));
+            _aaplPrice = (_aapl.setAAPLPrice( _stockgrabber.GetRandomInt()));
         }
 
         public void PrintPrices()

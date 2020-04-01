@@ -7,7 +7,7 @@ namespace VogtObserver2
     class GOOG : Stock
     {
         private double _googPrice;
-        public double setMSFTPrice(double newGoogPrice)
+        public double setGoogPrice(double newGoogPrice)
         {
             _googPrice = newGoogPrice;
             Notify();
