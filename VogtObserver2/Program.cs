@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace VogtObserver2
@@ -15,13 +16,18 @@ namespace VogtObserver2
         public static void Run(Stock stockGrabber)
         {
            
-            HistoricalDataResponse hdr = new HistoricalDataResponse();
+ 
             HistoricalDataInfo hdi = new HistoricalDataInfo();
 
-            HistoricalDataInfo.HistoricalData();
+            var hdr = hdi.HistoricalData();
 
-            var latestprice = hdr.latestPrice;
-            Console.WriteLine($"latestprice{latestprice}");
+            foreach (var historicaldata in hdr)
+            {
+                Console.WriteLine($"HEEREE{historicaldata.latestPrice}");
+            }
+
+            //var latestprice = hdr.latestPrice;
+            //Console.WriteLine($"latestprice{latestprice}");
 
             /*
            Trader t1 = new Trader(stockGrabber, "Julie");

@@ -8,16 +8,20 @@ using System.Linq;
 using RestSharp.Serializers.NewtonsoftJson;
 using RestSharp.Serialization.Json;
 using RestSharp;
+using System.Net;
 
 namespace VogtObserver2
 {
     class HistoricalDataInfo
     {
-        public static void HistoricalData()
+        private HistoricalDataResponse _hdr = new HistoricalDataResponse();
+
+        public List<HistoricalDataResponse> HistoricalData()
         {
-            HistoricalDataResponse hdr = new HistoricalDataResponse();
+
             var symbol = "msft";
             var IEXTrading_API_PATH = "https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e";
+
 
             var client = new RestClient("https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
 
@@ -27,16 +31,19 @@ namespace VogtObserver2
 
             var deserialize = new JsonDeserializer();
 
-            List<HistoricalDataResponse> output = deserialize.Deserialize<List<HistoricalDataResponse>>(response);
-            output.PrintDump();
+            //List<HistoricalDataResponse> output = deserialize.Deserialize<List<HistoricalDataResponse>>(response);
+
+            var output = deserialize.Deserialize<List<HistoricalDataResponse>>(response);
 
 
             foreach (var historicalData in output)
             {
                 if (historicalData != null)
                 {
-                    Console.WriteLine(hdr.latestPrice = historicalData.latestPrice);
-                    Console.WriteLine($"HDR latest price {hdr.latestPrice}");
+                    _hdr.latestPrice = Convert.ToDouble(historicalData.latestPrice);
+                       Console.WriteLine("Here!");
+                    //Console.WriteLine(hdr.latestPrice = Convert.ToDouble((historicalData.latestPrice)));
+                    Console.WriteLine($"HDR latest price {_hdr.latestPrice}");
                     Console.WriteLine("Open: " + historicalData.open);
                     Console.WriteLine("Close: " + historicalData.close);
                     Console.WriteLine("Lastest aaprice: "+historicalData.latestPrice);
@@ -46,6 +53,8 @@ namespace VogtObserver2
                     Console.WriteLine("Change Percentage: " + historicalData.changePercent);
                 }
             }
+
+            return output;
         }
     }
 }
