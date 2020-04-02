@@ -10,7 +10,6 @@ namespace VogtObserver2
         private List<HistoricalDataResponse> _hdr;
 
         private List<IObserver> _observers = new List<IObserver>();
-        private int _random;
 
         public void AddObserver(IObserver o)
         {
