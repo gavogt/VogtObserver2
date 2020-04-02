@@ -40,9 +40,9 @@ namespace VogtObserver2
         public void PrintPrices()
         {
 
-            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_msftPrice} Stock: MSFT");
-            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_googPrice} Stock: GOOG");
-            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_aaplPrice} Stock: AAPL");
+            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_msftPrice:C2} Stock: MSFT");
+            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_googPrice:C2} Stock: GOOG");
+            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {_aaplPrice:C2} Stock: AAPL");
 
         }
     }
