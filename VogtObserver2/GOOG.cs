@@ -8,7 +8,7 @@ namespace VogtObserver2
     {
         private double _googPrice;
 
-        public double setGoogPrice(double newGoogPrice)
+        public double SetGoogPrice(double newGoogPrice)
         {
             _googPrice = newGoogPrice;
             Notify();

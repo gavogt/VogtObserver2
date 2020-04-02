@@ -8,7 +8,7 @@ namespace VogtObserver2
     {
         private double _aaplPrice;
 
-        public double setAAPLPrice(double newAAPLPrice)
+        public double SetAAPLPrice(double newAAPLPrice)
         {
             _aaplPrice = newAAPLPrice;
             Notify();

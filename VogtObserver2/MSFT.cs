@@ -8,7 +8,7 @@ namespace VogtObserver2
     {
         private double _msftPrice;
 
-        public double setMSFTPrice(double newMSFTPrice)
+        public double SetMSFTPrice(double newMSFTPrice)
         {
             _msftPrice = newMSFTPrice;
             Notify();

@@ -32,9 +32,9 @@ namespace VogtObserver2
 
         public void Update()
         {
-            _msftPrice = (_msft.setMSFTPrice(_stockgrabber.GetAAPLPrice()));
-            _googPrice = (_goog.setGoogPrice(_stockgrabber.GetMSFTPrice()));
-            _aaplPrice = (_aapl.setAAPLPrice(_stockgrabber.GetGOOGPrice()));
+            _msftPrice = (_msft.SetMSFTPrice(_stockgrabber.GetAAPLPrice()));
+            _googPrice = (_goog.SetGoogPrice(_stockgrabber.GetMSFTPrice()));
+            _aaplPrice = (_aapl.SetAAPLPrice(_stockgrabber.GetGOOGPrice()));
         }
 
         public void PrintPrices()
