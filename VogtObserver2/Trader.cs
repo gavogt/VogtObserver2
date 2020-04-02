@@ -10,26 +10,22 @@ namespace VogtObserver2
         private StockGrabber _stockgrabber2 = new StockGrabber();
         private StockGrabber _stockgrabber3 = new StockGrabber();
 
-        private double _msftPrice;
-        private double _googPrice;
-        private double _aaplPrice;
-
         private string _name;
 
         Random rand = new Random();
 
         private string[] _buyOrSell = new string[] { " ", "buy", "sell" };
 
-        public Trader(StockGrabber stockgrabber, string name)
+        public Trader(StockGrabber stockgrabber, string name, string symbol)
         {
             _stockgrabber = stockgrabber;
             _name = name;
 
         }
 
-        public void Update(double cost)
+        public void Update(double cost, string symbol)
         {
-            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {cost:C2} Stock: MSFT");
+            Console.WriteLine($"The Lastest trade is Trader: {_name} {_buyOrSell[rand.Next(1, 3)]} cost {cost:C2} Stock: {symbol}");
         }
 
         public void PrintPrices()

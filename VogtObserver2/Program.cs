@@ -17,9 +17,9 @@ namespace VogtObserver2
         {
             StockGrabber stockGrabber = new StockGrabber();
 
-            Trader t1 = new Trader(stockGrabber, "Julie");
-            Trader t2 = new Trader(stockGrabber, "Amy");
-            Trader t3 = new Trader(stockGrabber, "Mark");
+            Trader t1 = new Trader(stockGrabber, "Julie","MSFT");
+            Trader t2 = new Trader(stockGrabber, "Amy","APPL");
+            Trader t3 = new Trader(stockGrabber, "Mark","GOOG");
 
             stockGrabber.AddObserver(t1);
             stockGrabber.AddObserver(t2);
@@ -28,6 +28,7 @@ namespace VogtObserver2
 
             for (int i = 0; i <= 5; i++)
             {
+
                 stockGrabber.Notify();
 
                 Thread.Sleep(2000);
