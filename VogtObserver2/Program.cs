@@ -17,9 +17,9 @@ namespace VogtObserver2
         {
             HistoricalDataInfo hdi = new HistoricalDataInfo();
 
-            var hdr = hdi.HistoricalData();
+           // List<HistoricalDataResponse> hdr = hdi.HistoricalData();
 
-            HistoricalDataManager hdm = new HistoricalDataManager(hdr);
+           // HistoricalDataManager hdm = new HistoricalDataManager(hdr);
 
             Trader t1 = new Trader(stockGrabber, "Julie");
             Trader t2 = new Trader(stockGrabber, "Amy");

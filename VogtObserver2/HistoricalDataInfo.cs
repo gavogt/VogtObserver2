@@ -14,18 +14,13 @@ namespace VogtObserver2
 {
     class HistoricalDataInfo
     {
-        private HistoricalDataResponse _hdr = new HistoricalDataResponse();
 
-        public List<HistoricalDataResponse> HistoricalData()
+        public List<HistoricalDataResponse> HistoricalData(string path)
         {
-
-            var symbol = "msft";
-            var IEXTrading_API_PATH = "https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e";
-
 
             var client = new RestClient("https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
 
-            var request = new RestRequest(IEXTrading_API_PATH, Method.GET);
+            var request = new RestRequest(path, Method.GET);
 
             var response = client.Execute(request);
 
