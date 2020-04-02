@@ -18,7 +18,7 @@ namespace VogtObserver2
         public List<HistoricalDataResponse> HistoricalData(string path)
         {
 
-            var client = new RestClient("https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
+            var client = new RestClient(path);
 
             var request = new RestRequest(path, Method.GET);
 
