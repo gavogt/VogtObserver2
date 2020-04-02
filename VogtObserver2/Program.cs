@@ -15,12 +15,6 @@ namespace VogtObserver2
 
         public static void Run(Stock stockGrabber)
         {
-            HistoricalDataInfo hdi = new HistoricalDataInfo();
-
-           // List<HistoricalDataResponse> hdr = hdi.HistoricalData();
-
-           // HistoricalDataManager hdm = new HistoricalDataManager(hdr);
-
             Trader t1 = new Trader(stockGrabber, "Julie");
             Trader t2 = new Trader(stockGrabber, "Amy");
             Trader t3 = new Trader(stockGrabber, "Mark");
