@@ -6,6 +6,6 @@ namespace VogtObserver2
 {
     interface IObserver
     {
-        public void Update();
+        public void Update(double temp);
     }
 }

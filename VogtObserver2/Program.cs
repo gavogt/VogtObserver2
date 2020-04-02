@@ -8,27 +8,27 @@ namespace VogtObserver2
     {
         static void Main(string[] args)
         {
-            Stock stockGrabber = new Stock();
+            
 
-            Run(stockGrabber);
+            Run();
         }
 
-        public static void Run(Stock stockGrabber)
+        public static void Run()
         {
+            StockGrabber stockGrabber = new StockGrabber();
+
             Trader t1 = new Trader(stockGrabber, "Julie");
             Trader t2 = new Trader(stockGrabber, "Amy");
             Trader t3 = new Trader(stockGrabber, "Mark");
 
+            stockGrabber.AddObserver(t1);
+            stockGrabber.AddObserver(t2);
+            stockGrabber.AddObserver(t3);
+
+
             for (int i = 0; i <= 5; i++)
             {
-                t1.Update();
-                t1.PrintPrices();
-
-                t2.Update();
-                t2.PrintPrices();
-
-                t3.Update();
-                t3.PrintPrices();
+                stockGrabber.Notify();
 
                 Thread.Sleep(2000);
 

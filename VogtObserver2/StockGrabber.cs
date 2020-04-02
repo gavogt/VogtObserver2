@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VogtObserver2
 {
-    class Stock : IObservable
+    class StockGrabber : IObservable
     {
         private HistoricalDataInfo _hdi = new HistoricalDataInfo();
         private List<HistoricalDataResponse> _hdr;
@@ -20,7 +20,7 @@ namespace VogtObserver2
         {
             foreach (IObserver observer in _observers)
             {
-                observer.Update();
+                observer.Update(GetPrice()); 
             }
         }
 
@@ -29,16 +29,19 @@ namespace VogtObserver2
             _observers.Remove(o);
         }
 
-        public double GetPrice(string symbol)
+        public double GetPrice()
         {
-             double temp = 0.0;
+            string symbol = "MSFT";
+            var temp = 0.0;
+
             _hdr = _hdi.HistoricalData($"https://sandbox.iexapis.com/stable/stock/{symbol}/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
 
             foreach (var historicaldata in _hdr)
             {
                 temp = historicaldata.latestPrice;
             }
-            
+
+
             return temp;
         }
     }
