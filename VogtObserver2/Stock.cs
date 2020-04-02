@@ -32,25 +32,41 @@ namespace VogtObserver2
 
         public double GetAAPLPrice()
         {
+             double temp = 0.0;
             _hdr = _hdi.HistoricalData("https://sandbox.iexapis.com/stable/stock/AAPL/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
 
-            return _random;
+            foreach (var historicaldata in _hdr)
+            {
+                temp = historicaldata.latestPrice;
+            }
+
+            return temp;
         }
 
-        public int GetMSFTPrice()
+        public double GetMSFTPrice()
         {
-            Random random = new Random();
-            _random = random.Next(1, 1000);
+            double temp = 0.0;
+            _hdr = _hdi.HistoricalData("https://sandbox.iexapis.com/stable/stock/MSFT/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
 
-            return _random;
+            foreach (var historicaldata in _hdr)
+            {
+                temp = historicaldata.latestPrice;
+            }
+
+            return temp;
         }
 
-        public int GetGOOGPrice()
+        public double GetGOOGPrice()
         {
-            Random random = new Random();
-            _random = random.Next(1, 1000);
+            double temp = 0.0;
+            _hdr = _hdi.HistoricalData("https://sandbox.iexapis.com/stable/stock/GOOG/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
 
-            return _random;
+            foreach (var historicaldata in _hdr)
+            {
+                temp = historicaldata.latestPrice;
+            }
+
+            return temp;
         }
     }
 }

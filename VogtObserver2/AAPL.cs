@@ -7,6 +7,7 @@ namespace VogtObserver2
     class AAPL : Stock
     {
         private double _aaplPrice;
+
         public double setAAPLPrice(double newAAPLPrice)
         {
             _aaplPrice = newAAPLPrice;
