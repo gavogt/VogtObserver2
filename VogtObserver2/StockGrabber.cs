@@ -16,17 +16,17 @@ namespace VogtObserver2
             _observers.Add(o);
         }
 
-        public void Notify()
-        {
-            foreach (IObserver observer in _observers)
-            {
-                observer.Update(GetPrice(), Program.GetRandomStockSymbol()); 
-            }
-        }
-
         public void RemoveObserver(IObserver o)
         {
             _observers.Remove(o);
+        }
+
+        public void FetchStockPrice(string symbol)
+        {
+            foreach (IObserver observer in _observers)
+            {
+                observer.Update(GetPrice(), symbol);
+            }
         }
 
         public double GetPrice()

@@ -29,7 +29,7 @@ namespace VogtObserver2
             for (int i = 0; i <= 5; i++)
             {
 
-                stockGrabber.Notify();
+                stockGrabber.FetchStockPrice(GetRandomStockSymbol());
 
                 Thread.Sleep(2000);
 
