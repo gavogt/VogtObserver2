@@ -17,9 +17,9 @@ namespace VogtObserver2
         {
             StockGrabber stockGrabber = new StockGrabber();
 
-            Trader t1 = new Trader(stockGrabber, "Julie","MSFT");
-            Trader t2 = new Trader(stockGrabber, "Amy","APPL");
-            Trader t3 = new Trader(stockGrabber, "Mark","GOOG");
+            Trader t1 = new Trader("Julie");
+            Trader t2 = new Trader("Amy");
+            Trader t3 = new Trader("Mark");
 
             stockGrabber.AddObserver(t1);
             stockGrabber.AddObserver(t2);
@@ -34,6 +34,25 @@ namespace VogtObserver2
                 Thread.Sleep(2000);
 
             }
+        }
+
+        public static string GetRandomStockSymbol()
+        {
+
+            string[] tempSymbols = new string[3] { "GOOG", "MSFT", "AAPL" };
+            string symbol = " ";
+
+            Random random = new Random();
+
+            int temp;
+
+            for (int i = 0; i < 200; i++)
+            {
+                temp = random.Next(0, 3);
+                symbol = tempSymbols[temp];
+            }
+
+            return symbol;
         }
     }
 }

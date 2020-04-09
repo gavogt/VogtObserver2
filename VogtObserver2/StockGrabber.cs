@@ -20,7 +20,7 @@ namespace VogtObserver2
         {
             foreach (IObserver observer in _observers)
             {
-                observer.Update(GetPrice(), GetStockName()); 
+                observer.Update(GetPrice(), Program.GetRandomStockSymbol()); 
             }
         }
 
@@ -34,7 +34,7 @@ namespace VogtObserver2
             
             var temp = 0.0;
 
-            _hdr = _hdi.HistoricalData($"https://sandbox.iexapis.com/stable/stock/{GetStockName()}/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
+            _hdr = _hdi.HistoricalData($"https://sandbox.iexapis.com/stable/stock/{Program.GetRandomStockSymbol()}/quote?token=Tpk_81485eef3d7041e6bd05ba956b85fa4e");
 
             foreach (var historicaldata in _hdr)
             {
@@ -45,22 +45,6 @@ namespace VogtObserver2
             return temp;
         }
 
-        public string GetStockName() {
 
-            string[] tempSymbols = new string[3] { "GOOG", "MSFT", "AAPL" };
-            string symbol = " ";
-
-            Random random = new Random();
-
-            int temp;
-
-            for (int i = 0; i < 200; i++)
-            {
-                temp = random.Next(0, 3);
-                symbol = tempSymbols[temp];
-            }
-
-            return symbol;
-        }
     }
 }
