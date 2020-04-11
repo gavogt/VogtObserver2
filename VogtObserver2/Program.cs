@@ -42,17 +42,24 @@ namespace VogtObserver2
             string[] tempSymbols = new string[3] { "GOOG", "MSFT", "AAPL" };
             string symbol = " ";
 
-            Random random = new Random();
-
-            int temp;
 
             for (int i = 0; i < 200; i++)
             {
-                temp = random.Next(0, 3);
-                symbol = tempSymbols[temp];
+
+                symbol = tempSymbols[GetRandomNumber()]; ;
+
             }
 
             return symbol;
+        }
+
+        public static int GetRandomNumber()
+        {
+
+            Random rand = new Random();
+            var temp = rand.Next(0, 3);
+
+            return temp;
         }
     }
 }
